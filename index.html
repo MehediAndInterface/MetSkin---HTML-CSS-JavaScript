@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetSkin | Home</title>
+    <title>MetSkin - Personalized Skin Care</title>
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>MetSkin</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#upload">Upload</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#appointments">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+
+        <section id="home" class="hero">
+            <h2>Your Personalized Skin Care Journey Starts Here</h2>
+            <p>Discover tailored skin care advice and connect with dermatologists.</p>
+            <button>Get Started</button>
+        </section>
+
+        <section id="upload" class="upload-section">
+            <h2>Upload Your Skin Image/Video</h2>
+            <p>Upload a clear photo or video of your skin for analysis.</p>
+            <form id="uploadForm">
+                <label for="mediaUpload">Select File:</label>
+                <input type="file" id="mediaUpload" name="mediaUpload" accept="image/*, video/*">
+                <button type="submit">Analyze</button>
+            </form>
+            <div id="uploadPreview">
+                </div>
+
+        </section>
+
+        <section id="recommendations" class="recommendations-section">
+            <h2>Personalized Skin Care Recommendations</h2>
+            <div id="recommendationResults">
+                <p>Based on your skin analysis, we recommend:</p>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="products" class="products-section">
+            <h2>Recommended Skin Care Products</h2>
+            <div id="productList">
+                <article class="product">
+                    <h3>Product Name</h3>
+                    <p>Description...</p>
+                    <button>View Details</button>
+                </article>
+                <article class="product">
+                    <h3>Product Name</h3>
+                    <p>Description...</p>
+                    <button>View Details</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="doctors" class="doctors-section">
+            <h2>Find a Dermatologist</h2>
+            <div id="doctorDirectory">
+                <article class="doctor">
+                    <h3>Doctor Name</h3>
+                    <p>Specialty: ...</p>
+                    <button>Book Appointment</button>
+                </article>
+                <article class="doctor">
+                    <h3>Doctor Name</h3>
+                    <p>Specialty: ...</p>
+                    <button>Book Appointment</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="profile" class="profile-section">
+            <h2>Your Profile</h2>
+            <div id="userProfile">
+                <p>Name: User Name</p>
+                <p>Email: user@email.com</p>
+                </div>
+        </section>
+
+        <section id="resources" class="resources-section">
+            <h2>Skin Care Resources</h2>
+            <div id="resourceList">
+                <article class="resource">
+                    <h3>Article Title</h3>
+                    <p>Summary...</p>
+                    <a href="#">Read More</a>
+                </article>
+                <article class="resource">
+                    <h3>Video Title</h3>
+                    <p>Description...</p>
+                    <a href="#">Watch Now</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="appointments" class="appointments-section">
+            <h2>Your Appointments</h2>
+            <div id="appointmentList">
+                <article class="appointment">
+                    <h3>Doctor Name</h3>
+                    <p>Date: ...</p>
+                    <p>Time: ...</p>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 MetSkin. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

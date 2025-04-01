@@ -1,0 +1,158 @@
+/* style.css (Basic CSS for MetSkin) */
+
+/* General Styles */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light background */
+    color: #333; /* Darker text */
+}
+
+.header, .main, .footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    color: #007bff; /* Primary color */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Horizontal navigation */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* Main Content Styles */
+main {
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #e9f5ff; /* Light hero background */
+}
+
+.hero h2 {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.hero p {
+    margin-bottom: 20px;
+}
+
+.hero button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content article {
+    margin-bottom: 30px;
+}
+
+.content h3 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ddd;
+}
+
+/* Basic Form Styles (for future upload functionality) */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+form label {
+    margin-bottom: 5px;
+}
+
+form input, form textarea, form button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments (basic) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
