@@ -1,143 +1,55 @@
-// script.js
+const dropArea = document.getElementById('dropArea');
+const fileInput = document.getElementById('mediaUpload');
+const previewArea = document.getElementById('uploadPreview');
+const progressBar = document.getElementById('uploadProgress');
+const errorMessage = document.getElementById('uploadError');
+const uploadButton = document.getElementById('uploadButton');
+const recommendations = document.getElementById('recommendations');
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Upload Section Functionality
-    const uploadForm = document.getElementById('uploadForm');
-    const mediaUpload = document.getElementById('mediaUpload');
-    const uploadPreview = document.getElementById('uploadPreview');
+dropArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropArea.classList.add('drag-over');
+});
 
-    if (uploadForm && mediaUpload && uploadPreview) {
-        mediaUpload.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const mediaType = file.type.startsWith('image/') ? 'img' : 'video';
-                    uploadPreview.innerHTML = mediaType === 'img'
-                        ? `<img src="${e.target.result}" alt="Uploaded Preview">`
-                        : `<video src="${e.target.result}" controls width="320">`;
-                };
-                reader.readAsDataURL(file);
-            } else {
-                uploadPreview.innerHTML = '<p>No file selected.</p>';
-            }
-        });
+dropArea.addEventListener('dragleave', () => {
+    dropArea.classList.remove('drag-over');
+});
 
-        uploadForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const formData = new FormData(uploadForm);
-
-            try {
-                // Placeholder: Replace with your actual API endpoint for analysis
-                const response = await fetch('/api/analyze', {
-                    method: 'POST',
-                    body: formData,
-                });
-
-                if (response.ok) {
-                    const analysisResult = await response.json();
-                    // Process the analysis result and update the recommendations section
-                    updateRecommendations(analysisResult);
-                } else {
-                    console.error('Upload failed:', response.status);
-                    alert('Upload failed. Please try again.');
-                }
-            } catch (error) {
-                console.error('Error during upload:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
+dropArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropArea.classList.remove('drag-over');
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+        fileInput.files = files;
+        showPreview(files[0]);
     }
+});
 
-    // Recommendation Section Update Function
-    function updateRecommendations(analysisResult) {
-        const recommendationResults = document.getElementById('recommendationResults');
-        if (recommendationResults) {
-            // Placeholder: Replace with actual result processing logic
-            recommendationResults.innerHTML = '<p>Based on your skin analysis, we recommend:</p>';
-            const ul = document.createElement('ul');
-            if(analysisResult && analysisResult.recommendations){
-                analysisResult.recommendations.forEach(recommendation => {
-                    const li = document.createElement('li');
-                    li.textContent = recommendation;
-                    ul.appendChild(li);
-                });
-            } else {
-                const li = document.createElement('li');
-                li.textContent = "No Recommendations yet.";
-                ul.appendChild(li);
-            }
-            recommendationResults.appendChild(ul);
-        }
+fileInput.addEventListener('change', (e) => {
+    if (e.target.files.length > 0) {
+        showPreview(e.target.files[0]);
     }
+});
 
-    // Example function to fetch and populate product data
-    async function fetchProducts() {
-        try {
-            // Placeholder: Replace with your API endpoint for products
-            const response = await fetch('/api/products');
-            if (response.ok) {
-                const products = await response.json();
-                populateProducts(products);
-            } else {
-                console.error('Failed to fetch products:', response.status);
-            }
-        } catch (error) {
-            console.error('Error fetching products:', error);
-        }
+function showPreview(file) {
+    if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            previewArea.innerHTML = `<img src="${e.target.result}">`;
+        };
+        reader.readAsDataURL(file);
+    } else if (file.type.startsWith('video/')) {
+        previewArea.innerHTML = `<video src="${URL.createObjectURL(file)}" controls>`;
     }
+}
 
-    function populateProducts(products) {
-        const productList = document.getElementById('productList');
-        if (productList) {
-            productList.innerHTML = ''; // Clear existing products
-            products.forEach(product => {
-                const article = document.createElement('article');
-                article.classList.add('product');
-                article.innerHTML = `
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                    <button>View Details</button>
-                `;
-                productList.appendChild(article);
-            });
-        }
+// const uploadButton = document.getElementById('uploadButton');
+// const recommendations = document.getElementById('recommendations');
+
+uploadButton.addEventListener('click', () => {
+    if (recommendations.style.display === 'none') {
+        recommendations.style.display = 'block'; // Show recommendations
+    } else {
+        recommendations.style.display = 'none'; // Hide recommendations
     }
-
-    // Example function to fetch doctors
-    async function fetchDoctors(){
-        try {
-            const response = await fetch('/api/doctors');
-            if (response.ok){
-                const doctors = await response.json();
-                populateDoctors(doctors);
-            } else {
-                console.error("Failed to fetch doctors:", response.status);
-            }
-
-        } catch (error){
-            console.error('Error fetching doctors:', error);
-        }
-    }
-
-    function populateDoctors(doctors){
-        const doctorDirectory = document.getElementById('doctorDirectory');
-        if (doctorDirectory){
-            doctorDirectory.innerHTML = '';
-            doctors.forEach(doctor => {
-                const article = document.createElement('article');
-                article.classList.add('doctor');
-                article.innerHTML = `
-                    <h3>${doctor.name}</h3>
-                    <p>Specialty: ${doctor.specialty}</p>
-                    <button>Book Appointment</button>
-                `;
-                doctorDirectory.appendChild(article);
-            });
-        }
-    }
-
-    // Call functions to populate data on page load
-    fetchProducts();
-    fetchDoctors();
 });

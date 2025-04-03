@@ -10,7 +10,10 @@
 </head>
 <body>
     <header class="header">
-        <h1>MetSkin</h1>
+     <div class="nav-container">
+        <div class="logo">
+            <img src="./img/Logo_png.png" alt="MetSkin Logo">
+        </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -23,112 +26,93 @@
                 <li><a href="#appointments">Appointments</a></li>
             </ul>
         </nav>
+     </div>
     </header>
 
+    <!-- HERO SECTION -->
     <main class="main">
-
         <section id="home" class="hero">
             <h2>Your Personalized Skin Care Journey Starts Here</h2>
             <p>Discover tailored skin care advice and connect with dermatologists.</p>
             <button>Get Started</button>
         </section>
 
-        <section id="upload" class="upload-section">
-            <h2>Upload Your Skin Image/Video</h2>
+    <!-- UPLOAD IMAGE / VIDEO SECTION -->
+    <div class="container">
+        <section class="upload-section">
+            <h1>Upload Your Skin Image/Video</h1>
             <p>Upload a clear photo or video of your skin for analysis.</p>
-            <form id="uploadForm">
-                <label for="mediaUpload">Select File:</label>
+
+            <div id="dropArea" class="drop-area">
+                <p>Drag & Drop your image or video here</p>
+                <label for="mediaUpload" class="file-label">Or choose a file</label>
                 <input type="file" id="mediaUpload" name="mediaUpload" accept="image/*, video/*">
-                <button type="submit">Analyze</button>
-            </form>
-            <div id="uploadPreview">
-                </div>
-
-        </section>
-
-        <section id="recommendations" class="recommendations-section">
-            <h2>Personalized Skin Care Recommendations</h2>
-            <div id="recommendationResults">
-                <p>Based on your skin analysis, we recommend:</p>
-                <ul>
-                    <li>...</li>
-                    <li>...</li>
-                    <li>...</li>
-                </ul>
             </div>
+
+            <div id="uploadPreview" class="preview-container"></div>
+            <div id="uploadProgress" class="progress-bar"></div>
+            <div id="uploadError" class="error-message"></div>
+
+            <button id="uploadButton" class="upload-button">Analyze</button>
         </section>
 
-        <section id="products" class="products-section">
+        <!-- RECOMMENDED SKIN CARE PRODUCTS -->
+        <section class="recommendations" id="recommendations">
             <h2>Recommended Skin Care Products</h2>
-            <div id="productList">
-                <article class="product">
-                    <h3>Product Name</h3>
-                    <p>Description...</p>
-                    <button>View Details</button>
-                </article>
-                <article class="product">
-                    <h3>Product Name</h3>
-                    <p>Description...</p>
-                    <button>View Details</button>
-                </article>
-            </div>
-        </section>
-
-        <section id="doctors" class="doctors-section">
-            <h2>Find a Dermatologist</h2>
-            <div id="doctorDirectory">
-                <article class="doctor">
-                    <h3>Doctor Name</h3>
-                    <p>Specialty: ...</p>
-                    <button>Book Appointment</button>
-                </article>
-                <article class="doctor">
-                    <h3>Doctor Name</h3>
-                    <p>Specialty: ...</p>
-                    <button>Book Appointment</button>
-                </article>
-            </div>
-        </section>
-
-        <section id="profile" class="profile-section">
-            <h2>Your Profile</h2>
-            <div id="userProfile">
-                <p>Name: User Name</p>
-                <p>Email: user@email.com</p>
+            <div class="recommendation-item">
+                <img src="./img/product-demo-1.jpg" alt="Product 1" class="product-image">
+                <div class="recommendation-details">
+                    <h3>Product 1 Name</h3>
+                    <p>Description of Product 1.</p>
+                    <a href="#" class="cta-button">Shop Now</a>
                 </div>
-        </section>
-
-        <section id="resources" class="resources-section">
-            <h2>Skin Care Resources</h2>
-            <div id="resourceList">
-                <article class="resource">
-                    <h3>Article Title</h3>
-                    <p>Summary...</p>
-                    <a href="#">Read More</a>
-                </article>
-                <article class="resource">
-                    <h3>Video Title</h3>
-                    <p>Description...</p>
-                    <a href="#">Watch Now</a>
-                </article>
+            </div>
+            <div class="recommendation-item">
+                <img src="./img/product-demo-2.jpg" alt="Product 2" class="product-image">
+                <div class="recommendation-details">
+                    <h3>Product 2 Name</h3>
+                    <p>Description of Product 2.</p>
+                    <a href="#" class="cta-button">Shop Now</a>
+                </div>
             </div>
         </section>
+    </div>
 
-        <section id="appointments" class="appointments-section">
-            <h2>Your Appointments</h2>
-            <div id="appointmentList">
-                <article class="appointment">
-                    <h3>Doctor Name</h3>
-                    <p>Date: ...</p>
-                    <p>Time: ...</p>
-                </article>
+    <!-- PRODUCT -->
+    <section class="products">
+        <h1>Our Products</h1>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="./img/product-3.jpg" alt="Product 1">
+                <h3>Product 1 Name</h3>
+                <p>$29.99</p>
+                <div class="product-actions">
+                    <button class="like-btn">Like (0)</button>
+                    <button class="comment-btn">Comment</button>
+                    <button class="review-btn">Review</button>
+                    <button class="cart-btn">Add to Cart</button>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
             </div>
-        </section>
+            <div class="product-item">
+                <img src="./img/product-4.png" alt="Product 2">
+                <h3>Product 2 Name</h3>
+                <p>$39.99</p>
+                <div class="product-actions">
+                    <button class="like-btn">Like (0)</button>
+                    <button class="comment-btn">Comment</button>
+                    <button class="review-btn">Review</button>
+                    <button class="cart-btn">Add to Cart</button>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+            </div>
+    </section>
 
-    </main>
+</main>
 
     <footer class="footer">
-        <p>&copy; 2024 MetSkin. All rights reserved.</p>
+        <p>&copy; 2024 <a href="https://github.com/MehediAndInterface">MetSkin.</a> All rights reserved.</p>
     </footer>
 
     <script src="./script.js"></script>
