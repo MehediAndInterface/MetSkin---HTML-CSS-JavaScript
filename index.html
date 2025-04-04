@@ -1,121 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetSkin | Home</title>
-    <title>MetSkin - Personalized Skin Care</title>
-    <link rel="stylesheet" href="./CSS/reset.css">
-    <link rel="stylesheet" href="./CSS/styles.css">
-</head>
-<body>
-    <header class="header">
-     <div class="nav-container">
-        <div class="logo">
-            <img src="./img/Logo_png.png" alt="MetSkin Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#upload">Upload</a></li>
-                <li><a href="#recommendations">Recommendations</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#doctors">Doctors</a></li>
-                <li><a href="#profile">Profile</a></li>
-                <li><a href="#resources">Resources</a></li>
-                <li><a href="#appointments">Appointments</a></li>
-            </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metskin - Your Personalized Skincare Advisor</title>
+
+    <link rel="stylesheet" href="./CSS/styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- HEADER AREA -->
+    <header class="site-header">
+      <div class="container">
+        <a href="#home" class="logo">MetSkin</a>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li><a href="#map">Metskin Map</a></li>
+            <li><a href="#doctors">Doctors</a></li>
+            <li><a href="#subscribe">Subscribe</a></li>
+          </ul>
         </nav>
-     </div>
+        <button class="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </header>
 
     <!-- HERO SECTION -->
-    <main class="main">
-        <section id="home" class="hero">
-            <h2>Your Personalized Skin Care Journey Starts Here</h2>
-            <p>Discover tailored skin care advice and connect with dermatologists.</p>
-            <button>Get Started</button>
-        </section>
-
-    <!-- UPLOAD IMAGE / VIDEO SECTION -->
-    <div class="container">
-        <section class="upload-section">
-            <h1>Upload Your Skin Image/Video</h1>
-            <p>Upload a clear photo or video of your skin for analysis.</p>
-
-            <div id="dropArea" class="drop-area">
-                <p>Drag & Drop your image or video here</p>
-                <label for="mediaUpload" class="file-label">Or choose a file</label>
-                <input type="file" id="mediaUpload" name="mediaUpload" accept="image/*, video/*">
-            </div>
-
-            <div id="uploadPreview" class="preview-container"></div>
-            <div id="uploadProgress" class="progress-bar"></div>
-            <div id="uploadError" class="error-message"></div>
-
-            <button id="uploadButton" class="upload-button">Analyze</button>
-        </section>
-
-        <!-- RECOMMENDED SKIN CARE PRODUCTS -->
-        <section class="recommendations" id="recommendations">
-            <h2>Recommended Skin Care Products</h2>
-            <div class="recommendation-item">
-                <img src="./img/product-demo-1.jpg" alt="Product 1" class="product-image">
-                <div class="recommendation-details">
-                    <h3>Product 1 Name</h3>
-                    <p>Description of Product 1.</p>
-                    <a href="#" class="cta-button">Shop Now</a>
-                </div>
-            </div>
-            <div class="recommendation-item">
-                <img src="./img/product-demo-2.jpg" alt="Product 2" class="product-image">
-                <div class="recommendation-details">
-                    <h3>Product 2 Name</h3>
-                    <p>Description of Product 2.</p>
-                    <a href="#" class="cta-button">Shop Now</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- PRODUCT -->
-    <section class="products">
-        <h1>Our Products</h1>
-        <div class="product-grid">
-            <div class="product-item">
-                <img src="./img/product-3.jpg" alt="Product 1">
-                <h3>Product 1 Name</h3>
-                <p>$29.99</p>
-                <div class="product-actions">
-                    <button class="like-btn">Like (0)</button>
-                    <button class="comment-btn">Comment</button>
-                    <button class="review-btn">Review</button>
-                    <button class="cart-btn">Add to Cart</button>
-                    <button class="buy-btn">Buy Now</button>
-                </div>
-            </div>
-            <div class="product-item">
-                <img src="./img/product-4.png" alt="Product 2">
-                <h3>Product 2 Name</h3>
-                <p>$39.99</p>
-                <div class="product-actions">
-                    <button class="like-btn">Like (0)</button>
-                    <button class="comment-btn">Comment</button>
-                    <button class="review-btn">Review</button>
-                    <button class="cart-btn">Add to Cart</button>
-                    <button class="buy-btn">Buy Now</button>
-                </div>
-            </div>
-            </div>
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Unlock Your Skin's Potential</h1>
+          <p class="tagline">
+            Personalized skincare advice based on your environment.
+          </p>
+          <a href="#products" class="btn btn-primary">Discover More</a>
+        </div>
+        <div class="hero-image">
+          <img src="./img/hero-bg.jpg" alt="Skincare" loading="lazy" />
+        </div>
+      </div>
     </section>
 
-</main>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Metskin</h2>
+        <p>
+          Metskin is your dedicated partner in achieving healthy, radiant skin.
+          We understand that your skin's needs are constantly changing,
+          influenced by factors like weather, lifestyle, and environment. That's
+          why we've developed a unique platform that analyzes weather conditions
+          – temperature, pulsation, UV index – to provide you with tailored
+          skincare and makeup recommendations. We also offer a curated selection
+          of products and access to expert dermatologists to support you on your
+          skincare journey.
+        </p>
+      </div>
+    </section>
 
-    <footer class="footer">
-        <p>&copy; 2024 <a href="https://github.com/MehediAndInterface">MetSkin.</a> All rights reserved.</p>
+    <!-- PRODUCTS -->
+    <section id="products" class="products">
+      <div class="container">
+        <h2 class="section-title">Our Featured Products</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="./img/product-1.jpg" alt="Product 1" loading="lazy" />
+            <h3>Hydrating Serum</h3>
+            <p class="product-description">
+              Intense hydration for all skin types.
+            </p>
+            <span class="product-price">$29.99</span>
+            <button class="btn btn-secondary add-to-cart">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="./img/product-2.jpg" alt="Product 2" loading="lazy" />
+            <h3>UV Protection Cream</h3>
+            <p class="product-description">
+              Daily defense against harmful UV rays.
+            </p>
+            <span class="product-price">$34.50</span>
+            <button class="btn btn-secondary add-to-cart">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="./img/product-3.jpg" alt="Product 3" loading="lazy" />
+            <h3>Balancing Toner</h3>
+            <p class="product-description">
+              Restores skin's natural pH balance.
+            </p>
+            <span class="product-price">$24.99</span>
+            <button class="btn btn-secondary add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="products-cta">
+          <a href="#" class="btn btn-primary">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK SECTION -->
+    <section id="feedback" class="feedback">
+      <div class="container">
+        <h2 class="section-title">User Feedback</h2>
+        <div class="feedback-slider">
+          <div class="feedback-item active">
+            <div class="feedback-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <p class="feedback-text">
+              "Metskin has completely transformed my skincare routine! I love
+              how it adapts to the weather."
+            </p>
+            <p class="feedback-author">- Sarah M.</p>
+          </div>
+          <div class="feedback-item">
+            <div class="feedback-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="far fa-star"></i>
+            </div>
+            <p class="feedback-text">
+              "The product recommendations are spot-on, and my skin has never
+              looked better."
+            </p>
+            <p class="feedback-author">- John P.</p>
+          </div>
+        </div>
+        <div class="feedback-controls">
+          <button class="feedback-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="feedback-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="feedback-cta">
+          <a href="#" class="btn btn-secondary">Share Your Experience</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section id="map" class="map">
+      <div class="container">
+        <h2 class="section-title">Metskin Map</h2>
+        <div class="map-container">
+          <!-- <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1x...2fa!2m3!1d...!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x...!2s...!5e0!3m2!1sen!2sus!4v1698987823901!5m2!1sen!2sus"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe> -->
+
+          <!-- <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.798902194704!2d51.53114357605634!3d25.277349428448254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c542526835c9%3A0xf7c88d2704b5ee8c!2sAl%20Doha%20Al%20Jadeeda%2C%20Doha!5e0!3m2!1sen!2sqa!4v1743792439567!5m2!1sen!2sqa"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe> -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d432625.1360953232!2d118.40810950862667!3d32.09942399976852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b58c9b668dcd83%3A0x8ffbb60b79df1b06!2sNanjing%2C%20Jiangsu%2C%20China!5e0!3m2!1sen!2sqa!4v1743801532189!5m2!1sen!2sqa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <p>
+            Discover Metskin recommendations tailored to your current location
+            or travel destinations. Find the best skincare practices, local
+            dermatologists, and product availability wherever you go.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCTORS -->
+    <section id="doctors" class="doctors">
+      <div class="container">
+        <h2 class="section-title">Meet Our Dermatologists</h2>
+        <div class="doctor-list">
+          <div class="doctor-card">
+            <img
+              src="./img/Doctor-1.jpeg"
+              alt="Dr. Emily Carter"
+              loading="lazy"
+            />
+            <h4>Dr. Emily Carter</h4>
+            <p class="doctor-specialty">Medical Dermatology</p>
+            <a href="#" class="doctor-profile-link">View Profile</a>
+          </div>
+          <div class="doctor-card">
+            <img src="./img/Doctor-2.png" alt="Dr. David Lee" loading="lazy" />
+            <h4>Dr. David Lee</h4>
+            <p class="doctor-specialty">Cosmetic Dermatology</p>
+            <a href="#" class="doctor-profile-link">View Profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE SECTION -->
+    <section id="subscribe" class="subscribe">
+      <div class="container">
+        <h2 class="section-title">Subscribe to Our Newsletter</h2>
+        <p>
+          Stay up-to-date with the latest skincare trends, exclusive offers, and
+          personalized advice.
+        </p>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2024 <a href="https://github.com/MehediAndInterface">MetSkin</a>. All rights reserved.</p>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
     </footer>
 
     <script src="./script.js"></script>
-
-</body>
+  </body>
 </html>

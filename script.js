@@ -1,55 +1,76 @@
-const dropArea = document.getElementById('dropArea');
-const fileInput = document.getElementById('mediaUpload');
-const previewArea = document.getElementById('uploadPreview');
-const progressBar = document.getElementById('uploadProgress');
-const errorMessage = document.getElementById('uploadError');
-const uploadButton = document.getElementById('uploadButton');
-const recommendations = document.getElementById('recommendations');
+document.addEventListener("DOMContentLoaded", () => {
+    // --- Header ---
+    const navToggle = document.querySelector(".nav-toggle");
+    const siteNav = document.querySelector(".site-nav");
 
-dropArea.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropArea.classList.add('drag-over');
-});
+    navToggle.addEventListener("click", () => {
+      siteNav.classList.toggle("active");
+    });
 
-dropArea.addEventListener('dragleave', () => {
-    dropArea.classList.remove('drag-over');
-});
+    // --- Smooth Scrolling ---
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
 
-dropArea.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropArea.classList.remove('drag-over');
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-        fileInput.files = files;
-        showPreview(files[0]);
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
+
+        // Close nav on mobile after clicking
+        if (navToggle.style.display !== "none") {
+          siteNav.classList.remove("active");
+        }
+      });
+    });
+
+    // --- Feedback Slider ---
+    const feedbackItems = document.querySelectorAll(".feedback-item");
+    const feedbackPrev = document.querySelector(".feedback-prev");
+    const feedbackNext = document.querySelector(".feedback-next");
+    let currentFeedbackIndex = 0;
+    const feedbackInterval = 5000; // 5 seconds
+
+    function showFeedback(index) {
+      feedbackItems.forEach((item) => item.classList.remove("active"));
+      feedbackItems[index].classList.add("active");
     }
-});
 
-fileInput.addEventListener('change', (e) => {
-    if (e.target.files.length > 0) {
-        showPreview(e.target.files[0]);
+    function nextFeedback() {
+      currentFeedbackIndex =
+        (currentFeedbackIndex + 1) % feedbackItems.length;
+      showFeedback(currentFeedbackIndex);
     }
-});
 
-function showPreview(file) {
-    if (file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            previewArea.innerHTML = `<img src="${e.target.result}">`;
-        };
-        reader.readAsDataURL(file);
-    } else if (file.type.startsWith('video/')) {
-        previewArea.innerHTML = `<video src="${URL.createObjectURL(file)}" controls>`;
+    function prevFeedback() {
+      currentFeedbackIndex =
+        (currentFeedbackIndex - 1 + feedbackItems.length) %
+        feedbackItems.length;
+      showFeedback(currentFeedbackIndex);
     }
-}
 
-// const uploadButton = document.getElementById('uploadButton');
-// const recommendations = document.getElementById('recommendations');
+    feedbackNext.addEventListener("click", nextFeedback);
+    feedbackPrev.addEventListener("click", prevFeedback);
 
-uploadButton.addEventListener('click', () => {
-    if (recommendations.style.display === 'none') {
-        recommendations.style.display = 'block'; // Show recommendations
-    } else {
-        recommendations.style.display = 'none'; // Hide recommendations
-    }
-});
+    // Start the automatic slider
+    let feedbackSliderInterval = setInterval(
+      nextFeedback,
+      feedbackInterval
+    );
+
+    // Clear interval on hover, restart on mouse leave
+    feedbackSlider.addEventListener("mouseenter", () => {
+      clearInterval(feedbackSliderInterval);
+    });
+
+    feedbackSlider.addEventListener("mouseleave", () => {
+      feedbackSliderInterval = setInterval(nextFeedback, feedbackInterval);
+    });
+
+    // --- Add to Cart ---
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+    addToCartButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        alert("Product added to cart!"); // Replace with actual cart logic
+      });
+    });
+  });
